@@ -1,0 +1,14 @@
+{
+  "name": "industrial-iot-maintenance",
+  "version": "1.0.0",
+  "description": "Industrial IoT Asset Maintenance Logging System",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": ["iot", "industrial", "oee", "maintenance"],
+  "author": "",
+  "license": "MIT"
+}

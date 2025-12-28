@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Industrial IoT Asset Maintenance Log</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="application-container">
+      <aside class="application-sidebar">
+        <div class="sidebar-logo">IIoT</div>
+        <nav class="sidebar-navigation">
+          <div class="navigation-item active">Assets</div>
+          <div class="navigation-item disabled">Maintenance</div>
+          <div class="navigation-item disabled">Analytics</div>
+          <div class="navigation-item disabled">Reports</div>
+          <div class="navigation-item disabled">Settings</div>
+        </nav>
+      </aside>
+
+      <header class="application-header">
+        <h1 class="header-title">Asset Maintenance Dashboard</h1>
+        <div class="header-metadata">
+          <span id="system-timestamp">Loading...</span>
+          <span id="asset-count">0 Assets</span>
+        </div>
+      </header>
+
+      <main class="application-main">
+        <div class="main-content-wrapper">
+          <div class="action-toolbar">
+            <h2 class="toolbar-title">Industrial Assets</h2>
+            <button class="button-primary" id="open-create-modal-button">
+              + New Asset
+            </button>
+          </div>
+
+          <div class="data-table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Serial Number</th>
+                  <th>Asset Name</th>
+                  <th>Status</th>
+                  <th>Last Maintenance</th>
+                  <th>OEE Score</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="assets-table-body">
+                <tr>
+                  <td colspan="6" class="loading-spinner">Loading assets...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div class="modal-overlay" id="asset-modal-overlay">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3 class="modal-title" id="modal-title">Create New Asset</h3>
+          <button class="modal-close-button" id="modal-close-button">×</button>
+        </div>
+        <div class="modal-body">
+          <form id="asset-form">
+            <input type="hidden" id="asset-id-field" />
+
+            <div class="form-group">
+              <label class="form-label" for="asset-name-field"
+                >Asset Name</label
+              >
+              <input
+                type="text"
+                class="form-input"
+                id="asset-name-field"
+                placeholder="CNC Milling Machine Alpha"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="serial-number-field"
+                >Serial Number</label
+              >
+              <input
+                type="text"
+                class="form-input"
+                id="serial-number-field"
+                placeholder="CNC-A-001"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="status-field">Status</label>
+              <select class="form-select" id="status-field" required>
+                <option value="">Select Status</option>
+                <option value="RUNNING">Running</option>
+                <option value="MAINTENANCE">Maintenance</option>
+                <option value="DOWN">Down</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="maintenance-date-field"
+                >Last Maintenance Date</label
+              >
+              <input
+                type="date"
+                class="form-input"
+                id="maintenance-date-field"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="oee-score-field"
+                >OEE Score (%)</label
+              >
+              <input
+                type="number"
+                class="form-input"
+                id="oee-score-field"
+                min="0"
+                max="100"
+                step="0.01"
+                placeholder="87.50"
+                required
+              />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="button-secondary" id="modal-cancel-button">
+            Cancel
+          </button>
+          <button class="button-primary" id="modal-submit-button">
+            Save Asset
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>
