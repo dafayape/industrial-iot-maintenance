@@ -435,8 +435,8 @@ git push origin feature/asset-analytics
 
 ## License
 
-MIT License - See LICENSE file for details
-Copyright © 2025 Daffa Jaya Perkasa. All Rights Reserved.
+- MIT License - See LICENSE file for details.
+- Copyright © 2025 Daffa Jaya Perkasa. All rights reserved.
 
 ## Support
 
